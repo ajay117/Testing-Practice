@@ -2,6 +2,7 @@ const capitalize = require("./modules/capitalize");
 const reverseString = require("./modules/reverseString");
 const calculator = require("./modules/calculator");
 const caesarCipher = require("./modules/caesarCipher");
+const analyze = require("./modules/analyze");
 
 test("Returns the string with first character capitalized", () => {
 	expect(capitalize("hi")).toBe("Hi");
@@ -43,4 +44,19 @@ test("Check Caesar Cipher Algorithm", () => {
 	expect(caesarCipher("nqxg", -28)).toBe("love");
 	expect(caesarCipher("WLYRFLRP", 15)).toBe("LANGUAGE");
 	expect(caesarCipher("Oazsdmfgxmfuaze!!!", -12)).toBe("Congratulations!!!");
+});
+
+test("Check if the funciton analyze array correctly", () => {
+	expect(analyze([1, 8, 3, 4, 2, 6])).toEqual({
+		average: 4,
+		min: 1,
+		max: 8,
+		length: 6,
+	});
+	expect(analyze([2, 3, 5, 6, 7, 5, 1, 1])).toEqual({
+		average: 3.75,
+		min: 1,
+		max: 7,
+		length: 8,
+	});
 });
